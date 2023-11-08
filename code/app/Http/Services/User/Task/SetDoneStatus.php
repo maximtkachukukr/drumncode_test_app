@@ -9,6 +9,7 @@ use App\Models\TaskStatus;
 use App\Repositories\User\TaskRepositoryInterface;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Date;
 use LogicException;
 
 class SetDoneStatus
@@ -30,7 +31,8 @@ class SetDoneStatus
         if ($task->getAttribute('status') === TaskStatus::DONE->value) {
             throw new LogicException('Status is done already');
         }
-        $task->setAttribute('status', TaskStatus::DONE);
+        $task->setAttribute('status', TaskStatus::DONE->value);
+        $task->setAttribute('completed_at', Date::now());
         $this->taskRepository->save($task);
         return $task;
     }
