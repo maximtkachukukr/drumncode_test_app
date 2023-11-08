@@ -5,9 +5,10 @@ basically implements REST API for tasks CRUD
 
 ## How setup:
 1. docker-compose up -d, project will be here http://localhost. Db must be created authomatically
-2. run migrations
-3. Get your token via API
-4. That's all
+2. run composer install inside php container
+3. run migrations
+4. Get your token via API
+5. That's all
 
 ## OpenApi:
 Url to OpenApi http://localhost/openapi
