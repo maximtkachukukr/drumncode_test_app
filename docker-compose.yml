@@ -20,8 +20,10 @@ services:
         volumes:
             - "./code:/code"
             - "./docker/php-fpm/php-overrides.ini:/usr/local/etc/php/conf.d/php-overrides.ini"
+            - "./docker/php-fpm/logs:/var/log/php"
         environment:
             XDEBUG_MODE: "debug"
+            PHP_IDE_CONFIG: "serverName=docker"
 
     mariadb:
         image: "mariadb:11.1"
